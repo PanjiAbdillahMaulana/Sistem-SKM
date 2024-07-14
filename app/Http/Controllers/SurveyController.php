@@ -16,7 +16,7 @@ class SurveyController extends Controller
     public function index(): View
     {
         //
-        $surveys = Survey::orderBy('id', 'desc')->get();
+        $surveys = Survey::orderBy('id', 'asc')->get();
 
         return view('surveys.index', [
             'surveys' => $surveys,
@@ -41,7 +41,10 @@ class SurveyController extends Controller
         $validated = $request->validate([
             'indicator' => 'required|string|max:255',
             'question' => 'required|string|max:255',
-            
+            'answer1' => 'required|string|max:100',
+            'answer2' => 'required|string|max:100',
+            'answer3' => 'required|string|max:100',
+            'answer4' => 'required|string|max:100',
         ]);
  
         try {
@@ -58,7 +61,11 @@ class SurveyController extends Controller
     public function show(Survey $survey)
     {
         //
+        $surveys = Survey::orderBy('id', 'asc')->get();
 
+        return view('survei', [
+            'surveys' => $surveys,
+        ]);
     }
 
     /**
@@ -85,6 +92,10 @@ class SurveyController extends Controller
         $validated = $request->validate([
             'indicator' => 'required|string|max:255',
             'question' => 'required|string|max:255',
+            'answer1' => 'required|string|max:100',
+            'answer2' => 'required|string|max:100',
+            'answer3' => 'required|string|max:100',
+            'answer4' => 'required|string|max:100',
         ]);
  
         $survey->update($validated);

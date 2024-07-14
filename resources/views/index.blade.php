@@ -32,7 +32,7 @@
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link px-2 me-2 py-1 fw-bolder" href="/survey">Survey</a></li>
+                            <li class="nav-item"><a class="nav-link px-2 me-2 py-1 fw-bolder" href="/skm">Survey</a></li>
                             @auth
                               <li class="nav-item"><a class="nav-link px-2 py-1 fw-bolder" href="{{ url('/dashboard') }}">Dashboard</a></li>
                             @else
@@ -55,7 +55,7 @@
                                 <div class="fs-3 fw-light text-muted">Tingkatkan Pelayanan Bersama</div>
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Survey Kepuasaan Masyarakat</span></h1>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start mb-3">
-                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/survey">Isi Survey Sekarang!</a>
+                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/skm">Isi Survey Sekarang!</a>
 
                                 </div>
                             </div>

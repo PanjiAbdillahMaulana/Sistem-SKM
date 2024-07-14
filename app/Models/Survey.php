@@ -12,5 +12,9 @@ class Survey extends Model
     protected $fillable = [
         'indicator',
         'question',
+        'answer1',
+        'answer2',
+        'answer3',
+        'answer4',
     ];
 }
