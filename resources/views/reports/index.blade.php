@@ -3,7 +3,12 @@
         <div class="py-8">
             <div class="overflow-x-auto">
                 <div class="min-w-full shadow rounded-lg">
-                    <table class="min-w-full leading-normal">
+                    <a 
+                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" 
+                    href="{{ route('reports.pdf') }}">
+                    Export PDF</a>
+
+                    <table class="min-w-full leading-normal mt-4">
                         <thead>
                             <tr>
                                 <th rowspan="2" class="px-5 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border border-gray-300">

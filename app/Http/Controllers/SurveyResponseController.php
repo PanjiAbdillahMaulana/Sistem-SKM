@@ -19,17 +19,32 @@ class SurveyResponseController extends Controller
         ->orderBy('created_at') // Jika ada field created_at untuk mengurutkan berdasarkan waktu
         ->get();
 
-    // Ambil semua indikator pertanyaan (misalnya Anda menyimpannya di tabel surveys)
+    // Ambil semua indikator pertanyaan
     $indicators = Survey::orderBy('id')->pluck('indicator');
 
     // Grupkan respons berdasarkan visitor_id
     $groupedResponses = $responses->groupBy('visitor_id');
 
     return view('reports.index', compact('groupedResponses', 'indicators'));
+    }
 
+    public function viewPDF()
+    {
+        $mpdf = new \Mpdf\Mpdf();
+        // Ambil data responses yang berisi jawaban survei dan relasinya dengan survei dan visitor
+        $responses = Response::with('survey', 'visitor')
+        ->orderBy('visitor_id')
+        ->orderBy('created_at') // Jika ada field created_at untuk mengurutkan berdasarkan waktu
+        ->get();
 
+        // Ambil semua indikator pertanyaan
+        $indicators = Survey::orderBy('id')->pluck('indicator');
 
+        // Grupkan respons berdasarkan visitor_id
+        $groupedResponses = $responses->groupBy('visitor_id');
 
+        $mpdf->WriteHTML(view('reports.pdf', compact('groupedResponses', 'indicators')));
+        $mpdf->Output();
     }
 
     public function store(Request $request)

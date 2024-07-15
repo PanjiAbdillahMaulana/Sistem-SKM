@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(SurveySeeder::class);
 
-        $visitors = Visitor::factory()->count(5)->create();
+        $visitors = Visitor::factory()->count(100)->create();
 
         $surveys = Survey::all();
 
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
                 Response::create([
                     'visitor_id' => $visitor->id,
                     'survey_id' => $survey->id,
-                    'answer' => rand(1, 4), // atau gunakan $this->faker->randomElement(['1', '2', '3', '4'])
+                    'answer' => rand(3, 4), // atau gunakan $this->faker->randomElement(['1', '2', '3', '4'])
                 ]);
             }
         }
